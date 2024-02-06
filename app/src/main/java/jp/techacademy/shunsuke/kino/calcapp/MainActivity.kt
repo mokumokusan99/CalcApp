@@ -20,6 +20,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(view)
 
         binding.button.setOnClickListener(this)
+        binding.button2.setOnClickListener(this)
+        binding.button3.setOnClickListener(this)
+        binding.button4.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -30,8 +33,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val editText2 = findViewById<View>(R.id.editText2) as EditText
         val input2 = editText2.text.toString().toFloatOrNull()
 
-        intent.putExtra("INPUT1", input1)
-        intent.putExtra("INPUT2", input2)
+        val input3 = when (v?.id) {
+            R.id.button -> 1
+            R.id.button2 -> 2
+            R.id.button3 -> 3
+            R.id.button4 -> 4
+            else -> 0
+        }
+
+            intent.putExtra("INPUT1", input1)
+            intent.putExtra("INPUT2", input2)
+            intent.putExtra("INPUT3", input3)
+
         startActivity(intent)
     }
 }

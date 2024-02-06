@@ -18,6 +18,25 @@ class SecondActivity : AppCompatActivity() {
         val value1 = intent.getFloatExtra("INPUT1",0.0f)
         val value2 = intent.getFloatExtra("INPUT2", 0.0f)
 
-        binding.textView.text = "${value1 + value2}"
+        val value3 = intent.getIntExtra("INPUT3",0)
+
+            when(value3) {
+                1 -> {
+                    binding.textView.text = "${value1 + value2}"
+                }
+                2 -> {
+                    binding.textView.text = "${value1 - value2}"
+                }
+                3 -> {
+                    binding.textView.text = "${value1 * value2}"
+                }
+                4 -> {
+                    binding.textView.text = "${value1 / value2}"
+                }
+                else -> {
+
+                }
+            }
     }
+
 }
